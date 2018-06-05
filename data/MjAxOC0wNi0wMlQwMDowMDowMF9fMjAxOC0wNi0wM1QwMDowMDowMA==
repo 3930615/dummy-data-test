@@ -1,0 +1,74 @@
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#180314 10:40:56 server id 169269  end_log_pos 120 	Start: binlog v 4, server v 5.6.28-cdb2016-log created 180314 10:40:56 at startup
+ROLLBACK/*!*/;
+BINLOG '
+uIuoWg81lQIAdAAAAHgAAAAAAAQANS42LjI4LWNkYjIwMTYtbG9nAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAC4i6haEzgNAAgAEgAEBAQEEgAAXAAEGggAAAAICAgCAAAACgoKGRkAABSI
+U88=
+'/*!*/;
+# at 187
+#180602 12:32:13 server id 169269  end_log_pos 231 	GTID	last_committed=0	sequence_number=0	rbr_only=no
+SET @@SESSION.GTID_NEXT= 'e838bff2-2663-11e8-97dc-6c92bf48d2cd:19'/*!*/;
+# at 231
+#180602 12:32:13 server id 169269  end_log_pos 368 	Query	thread_id=235097	exec_time=0	error_code=0
+SET TIMESTAMP=1527913933/*!*/;
+SET @@session.pseudo_thread_id=235097/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=1073741824/*!*/;
+SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8mb4 *//*!*/;
+SET @@session.character_set_client=45,@@session.collation_connection=224,@@session.collation_server=33/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+CREATE DATABASE `demo` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci
+/*!*/;
+# at 368
+#180602 12:41:31 server id 169269  end_log_pos 412 	GTID	last_committed=0	sequence_number=0	rbr_only=no
+SET @@SESSION.GTID_NEXT= 'e838bff2-2663-11e8-97dc-6c92bf48d2cd:20'/*!*/;
+# at 412
+#180602 12:41:31 server id 169269  end_log_pos 859 	Query	thread_id=235191	exec_time=0	error_code=0
+use `demo`/*!*/;
+SET TIMESTAMP=1527914491/*!*/;
+CREATE TABLE `demo`.`test` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `car_id` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '车辆id',
+  `create_time` DATETIME NULL COMMENT '创建时间',
+  `update_time` DATETIME NULL COMMENT '更新时间',
+  `remark` VARCHAR(200) NULL COMMENT '备注',
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `car_id_UNIQUE` (`car_id` ASC))
+/*!*/;
+# at 859
+#180602 12:44:06 server id 169269  end_log_pos 903 	GTID	last_committed=0	sequence_number=0	rbr_only=no
+SET @@SESSION.GTID_NEXT= 'e838bff2-2663-11e8-97dc-6c92bf48d2cd:21'/*!*/;
+# at 903
+#180602 12:44:06 server id 169269  end_log_pos 1059 	Query	thread_id=235215	exec_time=0	error_code=0
+SET TIMESTAMP=1527914646/*!*/;
+/*!\C utf8 *//*!*/;
+SET @@session.character_set_client=33,@@session.collation_connection=33,@@session.collation_server=33/*!*/;
+CREATE USER 'test'@'%' IDENTIFIED BY PASSWORD '*709FBB56D6FC0898972EA2523E67FB4171022953'
+/*!*/;
+# at 1059
+#180602 12:44:07 server id 169269  end_log_pos 1103 	GTID	last_committed=0	sequence_number=0	rbr_only=no
+SET @@SESSION.GTID_NEXT= 'e838bff2-2663-11e8-97dc-6c92bf48d2cd:22'/*!*/;
+# at 1103
+#180602 12:44:07 server id 169269  end_log_pos 1178 	Query	thread_id=235216	exec_time=0	error_code=0
+SET TIMESTAMP=1527914647/*!*/;
+flush privileges
+/*!*/;
+# at 1178
+#180602 12:45:36 server id 169269  end_log_pos 1222 	GTID	last_committed=0	sequence_number=0	rbr_only=no
+SET @@SESSION.GTID_NEXT= 'e838bff2-2663-11e8-97dc-6c92bf48d2cd:23'/*!*/;
+# at 1222
+#180602 12:45:36 server id 169269  end_log_pos 1534 	Query	thread_id=235227	exec_time=0	error_code=0
+SET TIMESTAMP=1527914736/*!*/;
+grant SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , REFERENCES , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , EXECUTE , CREATE VIEW , SHOW VIEW , CREATE ROUTINE , ALTER ROUTINE , EVENT , TRIGGER ON `demo`.* to 'test'@'%'
+/*!*/;
+SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
